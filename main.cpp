@@ -64,12 +64,78 @@ struct PEDIDO
     string destino;
 };
 
+void apareo(PEDIDO vector1[], int n1, PEDIDO vector2[], int n2, PEDIDO vector3[], int &k){
+    int i = 0, j = 0;
+     k = 0;
+     
+    while(i < n1 && j < n2){
+         if(vector1[i].hora < vector2[j].hora)
+        {
+            vector3[k++] = vector1[i++];
+        }
+        else if(vector1[i].hora > vector2[j].hora)
+        {
+            vector3[k++] = vector2[j++];
+        }
+        else
+        {
+            vector3[k++] = vector1[i];
+            i++;
+            j++;
+
+        }
+
+            //cout << vector3[k-1] << endl;
+
+
+    }
+
+    while(i < n1)
+    {
+        vector3[k++] = vector1[i++];
+    }
+
+    while(j < n2)
+    {
+        vector3[k++] = vector2[j++];
+    }
+}
+
 int main()
+
 {
+    int pedidos_total;
     PEDIDO pedidos_web[MAX_CANTIDAD_PEDIDOS];
     PEDIDO pedidos_telefonicos[MAX_CANTIDAD_PEDIDOS];
 
     PEDIDO pedidos_unificado[MAX_CANTIDAD_PEDIDOS*2];
+
+    int i = 0;
+    pedidos_telefonicos[i].hora = 10;
+    pedidos_telefonicos[i].tipo_paquete = 1;
+    i++;
+    pedidos_telefonicos[i].hora = 11;
+    pedidos_telefonicos[i].tipo_paquete = 2;
+    i++;
+    pedidos_telefonicos[i].hora = 12;
+    pedidos_telefonicos[i].tipo_paquete = 3;
+
+    i = 0;
+    pedidos_web[i].hora= 6;
+    pedidos_web[i].tipo_paquete = 1;
+    i++;
+    pedidos_web[i].hora= 7;
+    pedidos_web[i].tipo_paquete = 2;
+    i++;
+    pedidos_web[i].hora= 8;
+    pedidos_web[i].tipo_paquete = 3;
+
+    apareo(pedidos_telefonicos, MAX_CANTIDAD_PEDIDOS, pedidos_web, MAX_CANTIDAD_PEDIDOS, pedidos_unificado,pedidos_total);
+
+    for(int i = 0; i < pedidos_total; i++)
+    {
+        cout << pedidos_unificado[i].hora << pedidos_unificado[i].tipo_paquete << endl;
+    }
 
 
 }
