@@ -35,7 +35,48 @@ HORA CON MENOS ENVIOS: 13
 Consideraciones: Los listados de ambos canales de atención se encuentran 
 ordenados en forma ascendente por hora de pedido.
 Restricciones: Solo se puede recorrer secuencialmente una vez cada vector
+*/
 
+/*
+    • Hora Pedido (hora en formato HHMM)
+    • Codigo de cliente (numérico)
+    • Tipo de paquete: (1-Liviano / 2-Medio / 3-Pesado)
+    • Origen(texto)
+    • Destino(texto)*/
+
+
+#include <iostream>
+
+using namespace std;
+
+const int TIPO_PAQUETE_LIVIANO = 1;
+const int TIPO_PAQUETE_MEDIO   = 2;
+const int TIPO_PAQUETE_PESADO  = 3;
+
+const int MAX_CANTIDAD_PEDIDOS = 100;
+
+struct PEDIDO
+{
+    int hora;
+    long codigo_cliente;
+    int tipo_paquete;
+    string origen;
+    string destino;
+};
+
+int main()
+{
+    PEDIDO pedidos_web[MAX_CANTIDAD_PEDIDOS];
+    PEDIDO pedidos_telefonicos[MAX_CANTIDAD_PEDIDOS];
+
+    PEDIDO pedidos_unificado[MAX_CANTIDAD_PEDIDOS*2];
+
+
+}
+
+
+
+/**
     2) Realizar diagrama del procedimiento intersección que dados dos arreglos 
     de entrada uno de N y otro de M elementos genere un nuevo arreglo de 
     salida sólo con los elementos que  están en ambos conjuntos ordenado en 
