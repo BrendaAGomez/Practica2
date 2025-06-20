@@ -84,10 +84,6 @@ void apareo(PEDIDO vector1[], int n1, PEDIDO vector2[], int n2, PEDIDO vector3[]
             j++;
 
         }
-
-            //cout << vector3[k-1] << endl;
-
-
     }
 
     while(i < n1)
@@ -112,13 +108,13 @@ int main()
 
     int i = 0;
     pedidos_telefonicos[i].hora = 10;
-    pedidos_telefonicos[i].tipo_paquete = 1;
+    pedidos_telefonicos[i].tipo_paquete = TIPO_PAQUETE_LIVIANO;
     i++;
     pedidos_telefonicos[i].hora = 11;
-    pedidos_telefonicos[i].tipo_paquete = 2;
+    pedidos_telefonicos[i].tipo_paquete = TIPO_PAQUETE_MEDIO;
     i++;
     pedidos_telefonicos[i].hora = 12;
-    pedidos_telefonicos[i].tipo_paquete = 3;
+    pedidos_telefonicos[i].tipo_paquete = TIPO_PAQUETE_PESADO;
 
     i = 0;
     pedidos_web[i].hora= 6;
@@ -130,7 +126,7 @@ int main()
     pedidos_web[i].hora= 8;
     pedidos_web[i].tipo_paquete = 3;
 
-    apareo(pedidos_telefonicos, MAX_CANTIDAD_PEDIDOS, pedidos_web, MAX_CANTIDAD_PEDIDOS, pedidos_unificado,pedidos_total);
+    apareo(pedidos_telefonicos, 3, pedidos_web, 3, pedidos_unificado,pedidos_total);
 
     for(int i = 0; i < pedidos_total; i++)
     {
